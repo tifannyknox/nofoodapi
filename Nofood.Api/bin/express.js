@@ -3,20 +3,24 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const variables = require('../bin/configuration/variables');
 
-//route
-const categoryRouter = require('../routes/category.route');
-const productRouter = require('../routes/product.router');
-//express
+//routers
+const categoriaRouter = require('../routes/catergoria-router');
+const produtoRouter = require('../routes/produto-router');
+
+//Criando/Invocando a Api/Server Web do Express
 const app = express();
-//JSON
+
+//Configuração de parse do JSON
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extend:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Database
-mongoose.connect(variables.Databse.connection);
+//Configurando a conexão com banco de dados
+mongoose.connect(variables.Database.connection);
 
-//Configure route
-app.use('/api/categoria', categoryRouter);
-app.use('/api/produto', productRouter);
+//Configurando as rotas
+app.use('/api/categoria', categoriaRouter);
+app.use('/api/produto', produtoRouter);
 
+
+//Exportando nossa Api
 module.exports = app;

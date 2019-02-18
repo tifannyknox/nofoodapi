@@ -1,18 +1,8 @@
 'use strict'
 
-// const express = require('express');
-// const bodyParser = require('body-parser');
-const app = require('../Nofood.Api/bin/express');
-const variables = require('../Nofood.Api/bin/configuration/variables');
-//
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extend: false}));
-//
-// let pessoas = [];
-//
+const app = require('../NoFood.Api/bin/express');
+const variables = require('../NoFood.Api/bin/configuration/variables');
 
-
-
-app.listen(3000, () => {
-    console.log(`Api iniciada na porta ${variables.Api.port}`);
+app.listen(variables.Api.port, () => {
+    console.info(`Api inicializada com sucesso na porta ${variables.Api.port}`);
 });
