@@ -4,7 +4,7 @@ exports.post = async (repository, validationContract, req, res) => {
         if (!validationContract.$isValid()) {
             res.status(400).send({
                 message: 'Existem dados inválidos na sua requisição',
-                validarion: validationContract.error()
+                validarion: validationContract.errors()
             }).end();
             return;
         }
@@ -22,7 +22,7 @@ exports.put = async (repository, validationContract, req, res) => {
         if (!validationContract.$isValid()) {
             res.status(400).send({
                 message: 'Existem dados inválidos na sua requisição',
-                validarion: validationContract.error()
+                validarion: validationContract.errors()
             }).end();
             return;
         }
